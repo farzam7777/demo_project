@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   mount Ckeditor::Engine => '/ckeditor'
   root "movies#index"
   
   resources :movies
+  
+  resources :users
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

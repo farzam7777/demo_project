@@ -53,7 +53,7 @@ class MoviesController < ApplicationController
   private
   
     def movie_params
-      params.require(:movie).permit(:title, :description, :year, :trailor, appearences_attributes: [:id, :movie_id, :actor_id, :_destroy])
+      params.require(:movie).permit(:title, :description, :year, :trailor, appearences_attributes: [:id, :movie_id, :actor_id, :_destroy], posters_attributes: [:id, :image, :_destroy])
     end
     
     def authenticate_admin

@@ -1,4 +1,4 @@
-<%= nested_form_for @movie do |f| %>
+<%= nested_form_for @movie, html: { multipart: true } do |f| %>
   <%= f.label :title, "Title" %>
   <%= f.text_field :title, class: "form-control" %>
   
@@ -18,7 +18,15 @@
     </div>
   <% end %>
   
+  <%= f.fields_for :posters do |poster| %>
+    <div style="margin-bottom: 1%; margin-top: 1%;">
+      <%= poster.file_field :image, class: "form-control actor_nested_form_select", style: "width: 20%;" %>
+      <%= poster.link_to_remove "Remove this poster", class: "btn btn-danger" %>
+    </div>
+  <% end %>
+  
   <%= f.link_to_add "Add Actor", :appearences, class: "btn btn-info form-buttons-margin" %>
+  <%= f.link_to_add "Add Poster", :posters, class: "btn btn-warning form-buttons-margin" %>
   <%= f.submit "Create", class: "btn btn-primary form-buttons-margin" %>
   <%= link_to "Back", :back, class: "btn btn-success form-buttons-margin" %>
 

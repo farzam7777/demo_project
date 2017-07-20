@@ -1,5 +1,10 @@
 <div class="container">
-  <p> Name: <%= @user.username %> </p>
-  <p> Email <strong> @user.email </strong> </p>
-  <p> Gender: <%= @user.gender %> </p>
+  <%= image_tag "pic.jpg", style: "width: 18%; height: 250px; float: left; margin-right: 3%;", class: "img-responsive img-thumbnail" %>
+  
+  <div style="margin-top: 2%; line-height: 50px">
+    <p> Name: <%= @user.username.capitalize %> </p>
+    <p> Email <strong> <%= @user.email %> </strong> </p>
+    <p> Gender: <%= @user.gender %> </p>
+    <p> <%= link_to "Back", :back, class: "btn btn-primary" %></p>
+  </div>
 </div>

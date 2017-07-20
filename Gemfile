@@ -16,6 +16,7 @@ gem "cancan"
 gem 'bootstrap-sass'
 gem 'ckeditor'
 gem 'paperclip'
+gem "nested_form"
 
 group :development, :test do
   gem 'byebug'

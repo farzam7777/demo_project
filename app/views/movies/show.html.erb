@@ -2,7 +2,7 @@
 <div class="container">
   <h3> Titile: <%= @movie.title %> </h3>
   <p> Released Year: <%= @movie.year %> </p>
-  <p> Description: <%= @movie.description %> </p>
+  <p> Description: <%= raw(@movie.description) %> </p>
 
   <%= get_trailor(@movie.trailor.split('/')[-2], @movie.trailor.split('=')[-1], @movie.trailor.split('/')[-1]) %>
 

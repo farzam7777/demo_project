@@ -14,6 +14,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem "cancan"
 gem 'bootstrap-sass'
+gem 'ckeditor'
+gem 'paperclip'
 
 group :development, :test do
   gem 'byebug'

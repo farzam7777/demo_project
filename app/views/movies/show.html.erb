@@ -2,10 +2,22 @@
 <div class="container">
   <h3> Titile: <%= @movie.title %> </h3>
   <p> Released Year: <%= @movie.year %> </p>
-  <p> Description: <%= raw(@movie.description) %> </p>
+  <p> Description: <%= raw(@movie.description) %> </p> <hr>
 
-  <%= get_trailor(@movie.trailor.split('/')[-2], @movie.trailor.split('=')[-1], @movie.trailor.split('/')[-1]) %>
-
+  <%= get_trailor(@movie.trailor.split('/')[-2], @movie.trailor.split('=')[-1], @movie.trailor.split('/')[-1]) %> <hr>
+  
+  <section id="actors">
+    <h2> All Actors </h2>
+    <ul> <%= render @movie.actors %> </ul> <hr>
+  </section>
+  
+  <section id="posters">
+    <h2> All Posters </h2>
+    <div class="row">
+      <%= render @movie.posters %>
+    </div> <hr>
+  </section>
+  
   <div style="margin-bottom: 2%;">
     <%= link_to "Back", :back, class: "btn btn-success" %>
     

@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @actors = Actor.all
   end
   
   def create
@@ -22,6 +23,7 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id])
+    @actors = Actor.all
   end
   
   def update
@@ -51,7 +53,7 @@ class MoviesController < ApplicationController
   private
   
     def movie_params
-      params.require(:movie).permit(:title, :description, :year, :trailor)
+      params.require(:movie).permit(:title, :description, :year, :trailor, appearences_attributes: [:id, :movie_id, :actor_id, :_destroy])
     end
     
     def authenticate_admin

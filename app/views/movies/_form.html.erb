@@ -1,4 +1,4 @@
-<%= form_for @movie do |f| %>
+<%= nested_form_for @movie do |f| %>
   <%= f.label :title, "Title" %>
   <%= f.text_field :title, class: "form-control" %>
   
@@ -11,6 +11,15 @@
   <%= f.label :trailor, "Trailor" %>
   <%= f.text_field :trailor, class: "form-control", style: "margin-bottom: 2%;" %>
   
-  <%= f.submit "Create", class: "btn btn-primary" %>
-  <%= link_to "Back", :back, class: "btn btn-success" %>
+  <%= f.fields_for :appearences do |appearence| %>
+    <div style="margin-bottom: 1%;">
+      <%= appearence.select :actor_id, options_from_collection_for_select(@actors, 'id', 'name', appearence.object.actor_id), { prompt: "Select Actor" }, class: "form-control actor_nested_form_select", style: "width: 20%;" %>
+      <%= appearence.link_to_remove "Remove this actor", class: "btn btn-danger" %>
+    </div>
+  <% end %>
+  
+  <%= f.link_to_add "Add Actor", :appearences, class: "btn btn-info form-buttons-margin" %>
+  <%= f.submit "Create", class: "btn btn-primary form-buttons-margin" %>
+  <%= link_to "Back", :back, class: "btn btn-success form-buttons-margin" %>
+
 <% end %>

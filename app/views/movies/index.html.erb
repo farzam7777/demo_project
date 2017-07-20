@@ -1,4 +1,6 @@
 <h1>Movies#index</h1>
 <p>Find me in app/views/movies/index.html.erb</p>
 
-<p> <%= link_to "Create Movie", new_movie_path %> </p>
+<% if can? :create, @movies %>
+  <p> <%= link_to "Create Movie", new_movie_path %> </p>
+<% end %>

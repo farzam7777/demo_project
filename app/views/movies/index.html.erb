@@ -2,5 +2,5 @@
 <p>Find me in app/views/movies/index.html.erb</p>
 
 <% if can? :create, @movies %>
-  <p> <%= link_to "Create Movie", new_movie_path %> </p>
+  <p> <%= link_to "Create Movie", new_movie_path, class: "btn btn-primary" %> </p>
 <% end %>

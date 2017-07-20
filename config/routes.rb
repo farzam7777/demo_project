@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  get 'movies/index'
-
-  get 'movies/new'
-
-  get 'movies/edit'
-
-  get 'movies/show'
+  root "movies#index"
+  
+  resources :movies
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

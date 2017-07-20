@@ -1,0 +1,16 @@
+<%= form_for @movie do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title, class: "form-control" %>
+  
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description, class: "form-control" %>
+  
+  <%= f.label :year, "Released Year" %>
+  <%= f.number_field :year, class: "form-control" %>
+  
+  <%= f.label :trailor, "Trailor" %>
+  <%= f.text_field :trailor, class: "form-control", style: "margin-bottom: 2%;" %>
+  
+  <%= f.submit "Create", class: "btn btn-primary" %>
+  <%= link_to "Back", :back, class: "btn btn-success" %>
+<% end %>

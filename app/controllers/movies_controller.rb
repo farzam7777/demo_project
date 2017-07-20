@@ -7,6 +7,17 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @movie = Movie.new
+  end
+  
+  def create
+    @movie = Movie.create(movie_params)
+    
+    if @movie.save
+      redirect_to movie_path(@movie), notice: "Movie is successfully created. "
+    else
+      render :new
+    end
   end
 
   def edit
@@ -17,6 +28,10 @@ class MoviesController < ApplicationController
   end
   
   private
+  
+    def movie_params
+      params.require(:movie).permit(:title, :description, :year, :trailor)
+    end
     
     def authenticate_admin
       authorize! :manage, Movie

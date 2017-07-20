@@ -1,7 +1,9 @@
-<h1>All Movies</h1>
+<div class="container">
+  <h1>All Movies</h1>
 
-<%= render @movies %>
+  <%= render @movies %>
 
-<% if can? :create, @movies %>
-  <p> <%= link_to "Create Movie", new_movie_path, class: "btn btn-primary" %> </p>
-<% end %>
+  <% if can? :create, @movies %>
+    <p> <%= link_to "Create Movie", new_movie_path, class: "btn btn-primary" %> </p>
+  <% end %>
+</div>

@@ -9,6 +9,16 @@
 <body>
   
   <div class="container">
+    
+    <% if user_signed_in? %>
+      <p>
+        Welcome! <strong> <%= current_user.email %> </strong> 
+        <span> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </span> 
+      </p>
+    <% else %>
+      <p> <%= link_to "Sign in", new_user_session_path %> </p>
+    <% end %>
+  
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>

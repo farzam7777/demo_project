@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   resources :movies
   
-  resources :users
+  resources :users, path: 'user'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

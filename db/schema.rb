@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170720183921) do
+ActiveRecord::Schema.define(version: 20170721051527) do
 
   create_table "actors", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -80,6 +80,10 @@ ActiveRecord::Schema.define(version: 20170720183921) do
     t.string   "username",               limit: 255
     t.string   "gender",                 limit: 255
     t.integer  "isAdmin",                limit: 4,   default: 0
+    t.string   "image_file_name",        limit: 255
+    t.string   "image_content_type",     limit: 255
+    t.integer  "image_file_size",        limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

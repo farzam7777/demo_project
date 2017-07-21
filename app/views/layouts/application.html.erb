@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -14,6 +15,7 @@
       <p>
         Welcome! <strong> <%= current_user.email %> </strong> 
         <span> <%= link_to "Profile", user_path(current_user) %> </span>
+        <span> <%= link_to "Edit Profile", edit_user_registration_path %></span>
         <span> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </span> 
       </p>
     <% else %>

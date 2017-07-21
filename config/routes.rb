@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   
   resources :movies
   
-  resources :users, path: 'user'
+  resources :users, path: 'user' do
+    member do
+      get 'edit_pic'
+    end
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

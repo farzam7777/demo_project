@@ -1,7 +1,7 @@
 <div class = "col-md-4">
   <% if movie.posters.count != 0 %>
     <a href="<%= movie_path(movie) %>"> 
-      <%= image_tag movie.display_first_poster, style: "width: 80%; height: 300px;", class: "img-responsive img-thumbnail" %> 
+      <%= image_tag movie.display_first_poster, class: "img-responsive img-thumbnail display-first-poster" %> 
     </a>
   <% end %> 
 </div>

@@ -9,18 +9,18 @@
   <%= f.number_field :year, class: "form-control" %>
   
   <%= f.label :trailor, "Trailor" %>
-  <%= f.text_field :trailor, class: "form-control", style: "margin-bottom: 2%;" %>
+  <%= f.text_field :trailor, class: "form-control form-trailor-margin" %>
   
   <%= f.fields_for :appearences do |appearence| %>
-    <div style="margin-bottom: 1%;">
-      <%= appearence.select :actor_id, options_from_collection_for_select(@actors, 'id', 'name', appearence.object.actor_id), { prompt: "Select Actor" }, class: "form-control actor_nested_form_select", style: "width: 20%;" %>
+    <div class="form-appearences-margin">
+      <%= appearence.select :actor_id, options_from_collection_for_select(@actors, 'id', 'name', appearence.object.actor_id), { prompt: "Select Actor" }, class: "form-control actor_nested_form_select form-appearences-width" %>
       <%= appearence.link_to_remove "Remove this actor", class: "btn btn-danger" %>
     </div>
   <% end %>
   
   <%= f.fields_for :posters do |poster| %>
-    <div style="margin-bottom: 1%; margin-top: 1%;">
-      <%= poster.file_field :image, class: "form-control actor_nested_form_select", style: "width: 20%;" %>
+    <div class="form-posters-margin">
+      <%= poster.file_field :image, class: "form-control actor_nested_form_select form-posters-file_field-width" %>
       <%= poster.link_to_remove "Remove this poster", class: "btn btn-danger" %>
     </div>
   <% end %>

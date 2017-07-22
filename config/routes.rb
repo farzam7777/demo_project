@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   
   resources :movies
   
+  namespace 'admin' do
+    root 'movies#index'
+    resources :movies
+  end
+  
   resources :users, path: 'user' do
     member do
       get 'edit_pic'

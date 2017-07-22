@@ -1,4 +1,4 @@
-<%= nested_form_for @movie, html: { multipart: true } do |f| %>
+<%= nested_form_for [:admin, @movie], html: { multipart: true } do |f| %>
   <%= f.label :title, "Title" %>
   <%= f.text_field :title, class: "form-control" %>
   

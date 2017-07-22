@@ -2,6 +2,7 @@ class Admin::MoviesController < Admin::BaseController
   before_filter :find_movie, only: [:edit, :update, :destroy]
   
   def index
+    @movies = Movie.includes(:posters).all
   end
 
   def new
@@ -10,6 +11,13 @@ class Admin::MoviesController < Admin::BaseController
   end
   
   def create
+    @movie = Movie.create(movie_params)
+    
+    if @movie.save
+      redirect_to admin_root_path, notice: "New Movie Successfully Created."
+    else
+      render :new
+    end
   end
 
   def edit
@@ -17,6 +25,13 @@ class Admin::MoviesController < Admin::BaseController
   end
   
   def update
+    @movie.update_attributes(movie_params)
+    
+    if @movie.save
+      redirect_to admin_movie_path(@movie), notice: "Movie is Successfully Updated."
+    else
+      render :edit
+    end
   end
 
   def show
@@ -24,6 +39,11 @@ class Admin::MoviesController < Admin::BaseController
   end
   
   def destroy
+    if @movie.destroy
+      redirect_to admin_root_path, notice: "Movie is Successfully Deleted."
+    else
+      redirect_to admin_movie_path(@movie), notice: "Some Problem Occured while deleting Movie."
+    end
   end
   
   private

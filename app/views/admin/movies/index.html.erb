@@ -1,3 +1,21 @@
 <div class="container">
   <h1>All Movies</h1>
+  
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @movies %>
+      </tbody>
+    </table>
+  </div>
+  
+  <%= link_to "Create new Movie", new_admin_movie_path, class: "btn btn-primary" %>
+  
 </div>

@@ -1,0 +1,6 @@
+<%= f.fields_for :posters do |poster| %>
+  <div class="form-posters-margin">
+    <%= poster.file_field :image, class: "form-control actor_nested_form_select form-posters-file_field-width" %>
+    <%= poster.link_to_remove "Remove this poster", class: "btn btn-danger" %>
+  </div>
+<% end %>

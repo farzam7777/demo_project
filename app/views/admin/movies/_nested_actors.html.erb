@@ -1,0 +1,6 @@
+<%= f.fields_for :appearences do |appearence| %>
+  <div class="form-appearences-margin">
+    <%= appearence.select :actor_id, options_from_collection_for_select(@actors, 'id', 'name', appearence.object.actor_id), { prompt: "Select Actor" }, class: "form-control actor_nested_form_select form-appearences-width" %>
+    <%= appearence.link_to_remove "Remove this actor", class: "btn btn-danger" %>
+  </div>
+<% end %>

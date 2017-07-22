@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_in){|u| u.permit(:email, :password, :remember_me)}
       devise_parameter_sanitizer.permit(:account_update){|u| u.permit(:username, :email, :password, :remember_me, :current_password, :gender, :image)}
     end
+    
+    def after_sign_in_path_for(resource)
+      current_user.try(:is_admin?) ? admin_root_path : root_url
+    end
 end

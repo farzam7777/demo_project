@@ -5,4 +5,8 @@ class Movie < ActiveRecord::Base
   
   accepts_nested_attributes_for :appearences, :allow_destroy => true
   accepts_nested_attributes_for :posters, :allow_destroy => true 
+
+  def display_first_poster
+    posters.first.image.url(:medium)
+  end
 end

@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_filter :authenticate_admin, only: [:new, :edit, :create, :destroy, :update]
   
   def index
-    @movies = Movie.all
+    @movies = Movie.includes(:posters).all
   end
 
   def new

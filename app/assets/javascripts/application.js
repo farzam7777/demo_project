@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require jquery_nested_form
 //= require ckeditor/init
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .

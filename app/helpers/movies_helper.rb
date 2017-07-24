@@ -6,4 +6,12 @@ module MoviesHelper
       content_tag(:p, content_tag(:iframe,'', width: "650", height: "350", src: "https://player.vimeo.com/video/#{vimeo_id}", frameborder: "0", webkitallowfullscreen: "true", mozallowfullscreen: "true", allowfullscreen: "true"))
     end
   end
+  
+  def avg_rating(movie)
+    rating_for movie, 'movie', cancel: false, star: movie.average('movie').avg
+  end
+  
+  def rate(movie)
+    rating_for movie, "movie", disable_after_rate: false, imdb_avg: true, enable_half: true
+  end
 end

@@ -2,7 +2,7 @@ class Admin::MoviesController < Admin::BaseController
   before_filter :find_movie, only: [:edit, :update, :destroy, :mark_feature, :mark_unfeature]
   
   def index
-    @movies = Movie.includes(:posters).all
+    @movies = Movie.all
   end
 
   def new

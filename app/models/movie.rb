@@ -10,7 +10,23 @@ class Movie < ActiveRecord::Base
     posters.first.image.url(:medium)
   end
   
-  def self.latest_movies
+  def self.limited_latest_movies
     includes(:posters).order('created_at desc').limit(3)
+  end
+  
+  def self.limited_featured_movies
+    includes(:posters).all.where("featured = ?", true).limit(3)
+  end
+  
+  def self.featured_movies
+    includes(:posters).all.where("featured = ?", true)
+  end
+  
+  def self.get_typed_movies(type)
+    if type == "latest"
+      @movies = Movie.includes(:posters).all
+    elsif type == "featured"
+      @movies = Movie.featured_movies
+    end
   end
 end

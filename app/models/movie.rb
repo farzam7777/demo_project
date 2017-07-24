@@ -13,4 +13,20 @@ class Movie < ActiveRecord::Base
   def self.latest_movies
     includes(:posters).order('created_at desc').limit(3)
   end
+  
+  def self.featured_movies
+    includes(:posters).all.where("featured = ?", true).limit(3)
+  end
+  
+  def self.all_featured_movies
+    includes(:posters).all.where("featured = ?", true)
+  end
+  
+  def self.typed_movies(listing_type)
+    if listing_type == "latest_movies"
+      @movies = Movie.includes(:posters).all
+    elsif listing_type == "featured_movies"
+      @movies = Movie.all_featured_movies
+    end
+  end
 end

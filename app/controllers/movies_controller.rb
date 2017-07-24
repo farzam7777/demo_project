@@ -3,10 +3,8 @@ class MoviesController < ApplicationController
   
   def index
     listing_type = params[:listing_type]
-    
-    if listing_type == "latest_movies"
-      @movies = Movie.includes(:posters).all
-    end
+    @listing = listing_type.split('_')[0]
+    @movies = Movie.typed_movies(listing_type)
   end
 
   def show

@@ -15,7 +15,7 @@
           <a class="navbar-brand" href="#">Imdb</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="<%= movies_path %>">Home</a></li>
+          <li class="active"><a href="<%= root_path %>">Home</a></li>
           <% if user_signed_in? %>
             <li><a href="<%= user_path(current_user) %> ">Profile</a></li>
           <% end %>

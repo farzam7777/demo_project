@@ -9,4 +9,8 @@ class Movie < ActiveRecord::Base
   def display_first_poster
     posters.first.image.url(:medium)
   end
+  
+  def self.latest_movies
+    includes(:posters).order('created_at desc').limit(3)
+  end
 end

@@ -9,7 +9,15 @@ Rails.application.routes.draw do
   
   namespace 'admin' do
     root 'movies#index'
-    resources :movies
+    resources :movies do 
+      member do 
+        post 'mark_feature'
+      end
+      
+      member do
+        post 'mark_unfeature'
+      end
+    end
   end
   
   resources :users, path: 'user' do

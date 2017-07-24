@@ -1,5 +1,5 @@
 class Admin::MoviesController < Admin::BaseController
-  before_filter :find_movie, only: [:edit, :update, :destroy]
+  before_filter :find_movie, only: [:edit, :update, :destroy, :mark_feature, :mark_unfeature]
   
   def index
     @movies = Movie.includes(:posters).all
@@ -43,6 +43,34 @@ class Admin::MoviesController < Admin::BaseController
       redirect_to admin_root_path, notice: "Movie is Successfully Deleted."
     else
       redirect_to admin_movie_path(@movie), notice: "Some Problem Occured while deleting Movie."
+    end
+  end
+  
+  def mark_feature
+    @movie.featured = true;
+    
+    respond_to do |format|
+      if @movie.save
+        format.html { redirect_to admin_root_path, notice: "Movie is Successfully Marked Featured." }
+        format.js
+      else
+        format.html { redirect_to admin_root_path, notice: "Some Problem Occured while marking movie as Featured." }
+        format.js
+      end
+    end
+  end
+  
+  def mark_unfeature
+    @movie.featured = false;
+    
+    respond_to do |format|
+      if @movie.save
+        format.html { redirect_to admin_root_path, notice: "Movie is Successfully Marked Un-Featured." }
+        format.js
+      else
+        format.html { redirect_to admin_root_path, notice: "Some Problem Occured while marking movie as Un-Featured." }
+        format.js
+      end
     end
   end
   

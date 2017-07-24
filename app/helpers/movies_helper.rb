@@ -8,7 +8,11 @@ module MoviesHelper
   end
   
   def avg_rating(movie)
-    rating_for movie, 'movie', cancel: false, star: movie.average('movie').avg
+    if movie.average('movie').present?
+      rating_for movie, 'movie', cancel: false, star: movie.average('movie').avg
+    else
+      rating_for movie, 'movie', cancel: false, star: 5
+    end
   end
   
   def rate(movie)

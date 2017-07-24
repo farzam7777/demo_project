@@ -3,4 +3,9 @@
 <section id="latest_movies">
   <h3 align="center" class="latest">Latest Movies</h3>
   <%= render @latest_movies %>
+  <div class="col-md-5"></div>
+  <div class="col-md-2">
+    <%= link_to "See All Movies", movies_path(listing_type: "latest_movies"), class: "btn btn-primary see_all" %>
+  </div>
+  <div class="col-md-5"></div>
 </section>

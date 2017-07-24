@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  root 'pages#home'
+
   get 'users/show'
 
   mount Ckeditor::Engine => '/ckeditor'
-  root "movies#index"
   
   resources :movies
   

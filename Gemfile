@@ -17,6 +17,7 @@ gem 'bootstrap-sass'
 gem 'ckeditor'
 gem 'paperclip'
 gem "nested_form"
+gem 'ratyrate'
 
 group :development, :test do
   gem 'byebug'

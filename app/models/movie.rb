@@ -4,7 +4,9 @@ class Movie < ActiveRecord::Base
   has_many :posters, dependent: :destroy
   
   accepts_nested_attributes_for :appearences, :allow_destroy => true
-  accepts_nested_attributes_for :posters, :allow_destroy => true 
+  accepts_nested_attributes_for :posters, :allow_destroy => true
+  
+  ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
 
   def display_first_poster
     posters.first.image.url(:medium)

@@ -20,11 +20,15 @@ module MoviesHelper
   end
   
   def link_of_edit(review)
-    link_to "Edit", [:edit, @movie, review]
+    if can? :update, review
+      link_to "Edit |", [:edit, @movie, review]
+    end
   end
   
   def link_of_delete(review)
-    link_to "Delete", [@movie, review], method: :delete, data: {confirm: 'Are you sure?'}, remote: true
+    if can? :destroy, review
+      link_to "Delete", [@movie, review], method: :delete, data: {confirm: 'Are you sure?'}, remote: true
+    end
   end
   
   def render_reviews_form

@@ -17,10 +17,11 @@ class ReviewsController < ApplicationController
   end
   
   def edit
-    
+    authorize! :update, @review
   end
   
   def update
+    authorize! :update, @review
     @review.update_attributes(review_params)
     
     if @review.save
@@ -31,6 +32,7 @@ class ReviewsController < ApplicationController
   end
   
   def destroy
+    authorize! :update, @review
     respond_to do |format|
       if @review.destroy
        format.html{ redirect_to movie_path(@movie), notice: "Review is Successfully Deleted." }

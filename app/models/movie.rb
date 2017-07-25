@@ -24,11 +24,21 @@ class Movie < ActiveRecord::Base
     includes(:posters).all.where("featured = ?", true)
   end
   
+  def self.limited_top_movies
+    joins("Inner JOIN rating_caches ON movies.id = cacheable_id").order('rating_caches.avg desc').limit(3)
+  end
+  
+  def self.top_movies
+    joins("Inner JOIN rating_caches ON movies.id = cacheable_id").where('rating_caches.avg >= ?', 3).order('rating_caches.avg desc')
+  end
+  
   def self.get_typed_movies(type)
     if type == "latest"
       @movies = Movie.includes(:posters).all
     elsif type == "featured"
       @movies = Movie.featured_movies
+    elsif type == "top"
+      @movies = Movie.top_movies
     end
   end
 end

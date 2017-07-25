@@ -1,0 +1,4 @@
+$('#reviews').append('<%= j render @review %>')
+$("#review_<%= @review.id %>").hide().fadeIn(500)
+$('#review_content').val(' ')
+$('#review_content').focus()

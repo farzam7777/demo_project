@@ -32,11 +32,16 @@
     </div> <hr>
   </section>
   
-  <section id="reviews">
-    <h2>Reviews</h2>
-    <%= render @movie.reviews %>
-    <%= render 'reviews/form' %>
-  </section>
+  
+  <div class="panel panel-primary review-panel-width">
+    <div class="panel-heading"> <h4> <strong> Reviews </strong> </h4></div>
+    <div class="panel-body">
+      <div id="reviews">
+        <%= render @movie.reviews %>
+      </div>
+      <%= render_reviews_form %>
+    </div>
+  </div>
   
   <div class="row">
     <div class = "btn-margin">

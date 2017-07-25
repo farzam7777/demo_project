@@ -24,6 +24,14 @@ module MoviesHelper
   end
   
   def link_of_delete(review)
-    link_to "Delete", [@movie, review], method: :delete
+    link_to "Delete", [@movie, review], method: :delete, data: {confirm: 'Are you sure?'}, remote: true
+  end
+  
+  def render_reviews_form
+    if user_signed_in?
+      render 'reviews/form'
+    else
+      "Log in to share reviews."
+    end 
   end
 end

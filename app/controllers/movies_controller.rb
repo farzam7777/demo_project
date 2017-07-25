@@ -5,10 +5,10 @@ class MoviesController < ApplicationController
     listing_type = params[:listing_type]
     @listing = listing_type.split('_')[0]
     @movies = Movie.get_typed_movies(@listing).page(params[:page]).per(3)
-    @review = Review.new
   end
 
   def show
     @movie = Movie.includes(:posters, :actors, :reviews).find(params[:id])
+    @review = Review.new
   end
 end

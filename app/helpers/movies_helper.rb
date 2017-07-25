@@ -18,4 +18,12 @@ module MoviesHelper
   def rate(movie)
     rating_for movie, "movie", disable_after_rate: false, imdb_avg: true, enable_half: true
   end
+  
+  def link_of_edit(review)
+    link_to "Edit", [:edit, @movie, review]
+  end
+  
+  def link_of_delete(review)
+    link_to "Delete", [@movie, review], method: :delete
+  end
 end

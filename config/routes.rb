@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   
-  resources :movies
+  resources :movies do
+    resources :reviews
+  end
   
   namespace 'admin' do
     root 'movies#index'

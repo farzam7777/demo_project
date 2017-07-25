@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   
   ratyrate_rater
+  
+  has_many :reviews
 end

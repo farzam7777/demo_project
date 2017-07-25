@@ -32,8 +32,16 @@
     </div> <hr>
   </section>
   
-  <div class = "btn-margin">
-    <%= link_to "All Movies", root_path, class: "btn btn-primary" %>
+  <section id="reviews">
+    <h2>Reviews</h2>
+    <%= render @movie.reviews %>
+    <%= render 'reviews/form' %>
+  </section>
+  
+  <div class="row">
+    <div class = "btn-margin">
+      <%= link_to "All Movies", root_path, class: "btn btn-primary" %>
+    </div>
   </div>
 </div>
 

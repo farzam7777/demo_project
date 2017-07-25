@@ -2,3 +2,9 @@
   <h1>All <%= @listing.capitalize %> Movies</h1>
   <%= render @movies %>
 </div>
+
+<div class="container pag-margin">
+  <div class="row"> 
+    <%= paginate @movies, theme: 'twitter-bootstrap-3', style: 'color: brown' %>
+  </div>
+</div>

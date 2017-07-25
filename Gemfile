@@ -18,6 +18,8 @@ gem 'ckeditor'
 gem 'paperclip'
 gem "nested_form"
 gem 'ratyrate'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 group :development, :test do
   gem 'byebug'

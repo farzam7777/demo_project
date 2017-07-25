@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   def index
     listing_type = params[:listing_type]
     @listing = listing_type.split('_')[0]
-    @movies = Movie.get_typed_movies(@listing)
+    @movies = Movie.get_typed_movies(@listing).page(params[:page]).per(3)
   end
 
   def show

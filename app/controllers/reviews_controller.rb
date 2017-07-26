@@ -35,8 +35,8 @@ class ReviewsController < ApplicationController
     authorize! :update, @review
     respond_to do |format|
       if @review.destroy
-       format.html{ redirect_to movie_path(@movie), notice: "Review is Successfully Deleted." }
-       format.js
+        format.html{ redirect_to movie_path(@movie), notice: "Review is Successfully Deleted." }
+        format.js
       else
         format.html{ redirect_to movie_path(@movie), notice: "Some Problem Occured while deleting Review." }
         format.js

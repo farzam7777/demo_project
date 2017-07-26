@@ -21,6 +21,11 @@ Rails.application.routes.draw do
         post 'mark_unfeature'
       end
     end
+    resources :reviews do
+      member do 
+        get 'review_stay'
+      end
+    end
   end
   
   resources :users, path: 'user' do

@@ -1,0 +1,16 @@
+<tr id="review_row_<%= review.id %>">
+  <td> <%= review.id %> </td>
+  <td class="table-content-width"> <%= review.content %> </td>
+  <td> <%= review.movie.title %> </td>
+  <td>
+    <% review.reports.each do |reported_user| %>
+      <%= link_to reported_user.user.username.capitalize, user_path(reported_user.user) %><%= review.get_comma(review, reported_user) %>
+    <% end %>
+  </td>
+  <td> <%= review.reports.count %> </td>
+  <td> 
+    <%= link_to "Stay", review_stay_admin_review_path(review), remote: true %> | 
+    <%= link_to "Remove", [:admin, review], method: :delete, remote: true %> 
+  </td>
+</tr>
+

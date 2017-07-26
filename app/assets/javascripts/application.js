@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
-//= require jquery_nested_form
 //= require ckeditor/init
+//= require jquery_nested_form
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .
+//= require turbolinks

@@ -1,7 +1,7 @@
 <div class="row review-form-top-margin">
   <div class="col-md-4">
     <%= form_for [@movie, @review], remote: true do |f| %>
-      <%= f.text_area :content, class: 'form-control text-area-width', size: '30x3', placeholder: "Make Review", autofocus: true %>
+      <%= f.text_area :content, class: 'form-control text-area-width', size: '30x3', placeholder: "Make Review" %>
       
       <%= f.hidden_field :user_id, value: current_user.id %>
       

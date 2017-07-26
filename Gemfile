@@ -20,6 +20,7 @@ gem "nested_form"
 gem 'ratyrate'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'byebug'

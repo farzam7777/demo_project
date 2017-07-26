@@ -18,6 +18,9 @@
           <li class="active"><a href="<%= root_path %>">Home</a></li>
           <% if user_signed_in? %>
             <li><a href="<%= user_path(current_user) %> ">Profile</a></li>
+            <% if current_user.is_admin? %>
+              <li><a href="<%= admin_root_path %> ">Movies</a></li>
+            <% end %>
           <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">

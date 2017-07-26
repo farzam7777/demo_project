@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   ratyrate_rater
   
   has_many :reviews
+  has_many :reports
 end

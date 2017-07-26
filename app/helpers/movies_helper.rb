@@ -27,7 +27,13 @@ module MoviesHelper
   
   def link_of_delete(review)
     if can? :destroy, review
-      link_to "Delete", [@movie, review], method: :delete, data: {confirm: 'Are you sure?'}, remote: true
+      link_to "Delete |", [@movie, review], method: :delete, data: {confirm: 'Are you sure?'}, remote: true
+    end
+  end
+  
+  def link_of_report(review)
+    if user_signed_in?
+      link_to "Report", reports_path(review: review, user_id: current_user.id), method: :post, remote: true
     end
   end
   

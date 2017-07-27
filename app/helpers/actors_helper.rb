@@ -8,7 +8,7 @@ module ActorsHelper
   end
   
   def get_edit_link(actor)
-    link_to "Edit", edit_admin_actor_path(actor), { :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal' }
+    link_to "Edit", edit_admin_actor_path(actor), { remote: true, 'data-toggle' =>  "modal", 'data-target' => '#myModal' }
   end
   
   def get_delete_link(actor)

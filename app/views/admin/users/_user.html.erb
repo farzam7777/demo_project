@@ -1,0 +1,12 @@
+<tr id="user_row_<%= user.id %>">
+  <td> <%= user.id %> </td>
+  <td> <%= user.username.capitalize %> </td>
+  <td> <%= user.email %> </td>
+  <td> <%= user.gender %> </td>
+  <td> <%= user.created_at %> </td>
+  <td> 
+    <%= link_to "View", user_path(user) %> | 
+    <%= link_to "Edit", edit_admin_user_path(user), { remote: true, 'data-toggle' =>  "modal", 'data-target' => '#myModal' } %> | 
+    <%= link_to "Delete", [:admin, user], remote: true, method: :delete, data: {confirm: 'Are you sure?'} %> 
+  </td>
+</tr>

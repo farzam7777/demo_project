@@ -2,7 +2,7 @@ class Admin::ReviewsController < Admin::BaseController
   before_filter :find_review, only: [:destroy, :review_stay]
   
   def index
-    @reviews = Review.joins(:reports).includes(:movie, {reports: :user}).distinct
+    @reviews = Review.reported_reviews.page(params[:page]).per(2)
   end
   
   def destroy

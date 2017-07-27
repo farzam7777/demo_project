@@ -10,4 +10,8 @@ class Review < ActiveRecord::Base
   def get_comma(review, reported_user)
     "," unless reported_user == review.reports.last
   end
+  
+  def self.reported_reviews
+    joins(:reports).includes(:movie, {reports: :user}).distinct
+  end
 end

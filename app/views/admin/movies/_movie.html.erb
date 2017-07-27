@@ -2,7 +2,7 @@
   <td> <%= movie.id %> </td>
   <td> <%= movie.title %> </td>
   <td> 
-    <%= link_to "View", admin_movie_path(movie) %> | 
+    <%= link_to "View", movie_path(movie) %> | 
     <%= link_to "Edit", edit_admin_movie_path(movie) %> | 
     <%= get_featured_link(movie) %> |
     <%= link_to "Delete", [:admin, movie], method: :delete, data: {confirm: 'Are you sure?'} %> 

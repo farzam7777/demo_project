@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       end
     end
     resources :actors
+    resources :users
   end
   
   resources :users, path: 'user' do

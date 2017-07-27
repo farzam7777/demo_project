@@ -2,7 +2,7 @@ class Admin::ActorsController < Admin::BaseController
   before_filter :find_actor, only: [:show, :edit, :update, :destroy]
   
   def index
-    @actors = Actor.all
+    @actors = Actor.all.page(params[:page]).per(3)
   end
   
   def new

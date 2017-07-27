@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Configure User</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for [:admin, user], remote: true do |f| %>
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control" %>
+        
+        <%= f.label :email, class: " movie_margin" %>
+        <%= f.email_field :email, class: "form-control" %>
+        
+        <%= f.submit "Update", class: "btn btn-primary movie_margin" %>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>

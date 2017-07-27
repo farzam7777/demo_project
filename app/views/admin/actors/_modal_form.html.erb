@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Create New Actor</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for [:admin, actor], remote: true do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+        
+        <%= f.label :description, class: " movie_margin" %>
+        <%= f.text_area :description, class: "form-control", size: '20x5' %>
+        
+        <%= f.submit "Create", class: "btn btn-primary movie_margin" %>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>

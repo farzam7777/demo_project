@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         get 'review_stay'
       end
     end
+    resources :actors
   end
   
   resources :users, path: 'user' do

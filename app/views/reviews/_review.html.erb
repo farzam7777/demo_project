@@ -2,7 +2,13 @@
   <p class=""> 
     <%= review.content %> 
     <p> By <strong> <%= review.username %> </strong> </p> 
-    <p> <span> <%= link_of_edit(review) %> <%= link_of_delete(review) %> <%= link_of_report(review) %> </span> </p> 
+    <p> 
+      <span> 
+      <%= link_of_edit(review) %> 
+      <%= link_of_delete(review) %> 
+      <%= link_of_report(review) %> 
+      </span> 
+    </p> 
     <p class="report-msg" id="report_msg_<%= review.id %>"></p>
   </p>
 <hr class = "hr-style"> </div> 

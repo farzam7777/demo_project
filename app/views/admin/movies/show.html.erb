@@ -8,7 +8,9 @@
   
   <section id="actors">
     <h2> All Actors </h2>
-    <ul> <%= render @movie.actors %> </ul> <hr>
+    <ul>
+      <%= raw get_actors.join %>
+    </ul> <hr>
   </section>
   
   <section id="posters">

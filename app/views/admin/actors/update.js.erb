@@ -1,0 +1,4 @@
+$('#myModal').modal('toggle')
+$("#actor_row_<%= @actor.id %>").fadeOut(200).fadeIn(500, function(){
+  $(this).replaceWith("<%= j render @actor %>")
+});

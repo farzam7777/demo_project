@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>All Actors</h1>
+  
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody id="actors">
+        <%= render @actors %>
+      </tbody>
+    </table>
+  </div>
+  
+  <%= link_to "Create new Actor", new_admin_actor_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal', class: 'btn btn-primary'} %>
+  
+  <div id="myModal" class="modal fade" role="dialog"> </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+<h1>Actor Details</h1>
+
+  <div class="panel panel-primary review-panel-width">
+    <div class="panel-heading"> <h4> <strong> <%= @actor.name %> </strong> </h4></div>
+    <div class="panel-body">
+      <%= @actor.description %>
+      <h3> Movies </h3>
+      <ul>
+        <%= raw get_movies.join %>
+      </ul>
+    </div>
+  </div>
+</div>

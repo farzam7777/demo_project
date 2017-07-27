@@ -33,7 +33,9 @@ module MoviesHelper
   
   def link_of_report(review)
     if user_signed_in?
-      link_to "Report", reports_path(review: review, user_id: current_user.id), method: :post, remote: true
+      if can? :manage, review or cannot? :report, review
+        link_to "Report", reports_path(review: review, user_id: current_user.id), method: :post, remote: true
+      end
     end
   end
   
@@ -43,5 +45,13 @@ module MoviesHelper
     else
       "Log in to share reviews."
     end 
+  end
+  
+   def get_actors
+    @movie.actors.collect do |actor|
+      content_tag(:li) do
+        link_to actor.name, admin_actor_path(actor)
+      end
+    end
   end
 end

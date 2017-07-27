@@ -5,15 +5,10 @@ class Ability
     user ||= User.new
     
     if user.is_admin?
-      can :manage, Review
+      can :manage, :all
     else
-      can :update, Review do |review|
-        review.user == user
-      end
-      
-      can :destroy, Review do |review|
-          review.user == user
-      end
+      can [:update, :destroy ], Review, user_id: user.id
+      can :report, Review, user_id: user.id
     end
     # Define abilities for the passed in user here. For example:
     #

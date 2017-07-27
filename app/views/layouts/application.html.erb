@@ -21,6 +21,7 @@
             <% if current_user.is_admin? %>
               <li><a href="<%= admin_root_path %> ">Movies</a></li>
               <li><a href="<%= admin_reviews_path %> ">Reviews</a></li>
+              <li><a href="<%= admin_actors_path %> ">Actors</a></li>
             <% end %>
           <% end %>
         </ul>

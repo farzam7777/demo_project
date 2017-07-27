@@ -17,5 +17,6 @@
 //= require jquery_nested_form
 //= require jquery.raty
 //= require ratyrate
+//= require bootstrap/modal
 //= require_tree .
 //= require turbolinks

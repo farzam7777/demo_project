@@ -1,0 +1,3 @@
+$('#myModal').modal('toggle')
+$("#actors").append("<%= j render @actor %>")
+$("#actor_row_<%= @actor.id %>").hide().fadeIn(500)

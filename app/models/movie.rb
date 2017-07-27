@@ -14,7 +14,11 @@ class Movie < ActiveRecord::Base
   end
   
   def self.limited_latest_movies
-    includes(:posters).order('created_at desc').limit(3)
+    includes(:posters).where(year: Time.current.year).limit(3)
+  end
+  
+  def self.latest_movies
+    includes(:posters).where(year: Time.current.year).all
   end
   
   def self.limited_featured_movies
@@ -35,7 +39,7 @@ class Movie < ActiveRecord::Base
   
   def self.get_typed_movies(type)
     if type == "latest"
-      @movies = Movie.includes(:posters).all
+      @movies = Movie.latest_movies
     elsif type == "featured"
       @movies = Movie.featured_movies
     elsif type == "top"

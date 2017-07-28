@@ -9,32 +9,28 @@ class Movie < ActiveRecord::Base
   
   ratyrate_rateable 'movie'
 
+  scope :limited_latest_movies, -> { includes(:posters).where(year: Time.current.year).limit(3) }
+  scope :latest_movies, -> { includes(:posters).where(year: Time.current.year).all }
+  scope :limited_featured_movies, -> { includes(:posters).all.where("featured = ?", true).limit(3) }
+  scope :featured_movies, -> { includes(:posters).all.where("featured = ?", true) }
+  
+  scope :limited_top_movies, -> { 
+    joins(:movie_average)
+    .where("rating_caches.avg >= ?", 3)
+    .order('rating_caches.avg desc')
+    .limit(3) 
+  }
+  
+  scope :top_movies, -> { 
+    joins(:movie_average)
+    .where("rating_caches.avg >= ?", 3)
+    .order('rating_caches.avg desc') 
+  }
+  
+  scope :all_associations, -> { includes(:posters, :actors, :reviews) }
+  
   def display_first_poster
     posters.first.image.url(:medium)
-  end
-  
-  def self.limited_latest_movies
-    includes(:posters).where(year: Time.current.year).limit(3)
-  end
-  
-  def self.latest_movies
-    includes(:posters).where(year: Time.current.year).all
-  end
-  
-  def self.limited_featured_movies
-    includes(:posters).all.where("featured = ?", true).limit(3)
-  end
-  
-  def self.featured_movies
-    includes(:posters).all.where("featured = ?", true)
-  end
-  
-  def self.limited_top_movies
-    joins("Inner JOIN rating_caches ON movies.id = cacheable_id").order('rating_caches.avg desc').limit(3)
-  end
-  
-  def self.top_movies
-    joins("Inner JOIN rating_caches ON movies.id = cacheable_id").where('rating_caches.avg >= ?', 3).order('rating_caches.avg desc')
   end
   
   def self.get_typed_movies(type)

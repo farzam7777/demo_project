@@ -28,7 +28,7 @@ class Admin::MoviesController < Admin::BaseController
     @movie.update_attributes(movie_params)
     
     if @movie.save
-      redirect_to admin_movie_path(@movie), notice: "Movie is Successfully Updated."
+      redirect_to [:admin, @movie], notice: "Movie is Successfully Updated."
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::MoviesController < Admin::BaseController
     if @movie.destroy
       redirect_to admin_root_path, notice: "Movie is Successfully Deleted."
     else
-      redirect_to admin_movie_path(@movie), notice: "Some Problem Occured while deleting Movie."
+      redirect_to [:admin, @movie], notice: "Some Problem Occured while deleting Movie."
     end
   end
   

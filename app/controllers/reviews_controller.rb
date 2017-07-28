@@ -3,14 +3,14 @@ class ReviewsController < ApplicationController
   before_filter :find_review, only: [:edit, :update, :destroy]
   
   def create
-    @review = @movie.reviews.build(review_params)
+    @review = @movie.reviews.new(review_params)
     
     respond_to do |format|
       if @review.save
-        format.html{ redirect_to movie_path(@movie), notice: "Review is successfully submitted." }
+        format.html{ redirect_to @movie, notice: "Review is successfully submitted." }
         format.js
       else
-        format.html{ redirect_to movie_path(@movie), notice: "Review is not successfully submitted." }
+        format.html{ redirect_to @movie, notice: "Review is not successfully submitted." }
         format.js
       end
     end
@@ -25,20 +25,20 @@ class ReviewsController < ApplicationController
     @review.update_attributes(review_params)
     
     if @review.save
-      redirect_to movie_path(@movie), notice: "Review is successfully updated."
+      redirect_to @movie, notice: "Review is successfully updated."
     else
-      redirect_to movie_path(@movie), notice: "Some problem occured while updating."
+      redirect_to @movie, notice: "Some problem occured while updating."
     end
   end
   
   def destroy
-    authorize! :update, @review
+    authorize! :destroy, @review
     respond_to do |format|
       if @review.destroy
-        format.html{ redirect_to movie_path(@movie), notice: "Review is Successfully Deleted." }
+        format.html{ redirect_to @movie, notice: "Review is Successfully Deleted." }
         format.js
       else
-        format.html{ redirect_to movie_path(@movie), notice: "Some Problem Occured while deleting Review." }
+        format.html{ redirect_to @movie, notice: "Some Problem Occured while deleting Review." }
         format.js
       end
     end

@@ -21,13 +21,13 @@ module MoviesHelper
   
   def link_of_edit(review)
     if can? :update, review
-      link_to "Edit |", [:edit, @movie, review]
+      link_to "", [:edit, @movie, review], class: 'glyphicon glyphicon-pencil'
     end
   end
   
   def link_of_delete(review)
     if can? :destroy, review
-      link_to "Delete |", [@movie, review], method: :delete, data: {confirm: 'Are you sure?'}, remote: true
+      link_to "", [@movie, review], method: :delete, class: 'glyphicon glyphicon-trash', data: {confirm: 'Are you sure?'}, remote: true
     end
   end
   

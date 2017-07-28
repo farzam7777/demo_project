@@ -1,11 +1,15 @@
 <div id="review_<%= review.id %>" class = "review_body">
   <p class=""> 
-    <%= review.content %> 
-    <p> By <strong> <%= review.username %> </strong> </p> 
+    <%= review.content %>
+    <span class="pull-right"> <%= link_of_edit(review) %> </span>
+    <span class="pull-right delete-link-margin"> <%= link_of_delete(review) %> </span>
+    <p>
+      <strong>
+        By <%= get_review_info(review) %>
+      </strong>
+    </p> 
     <p> 
       <span> 
-      <%= link_of_edit(review) %> 
-      <%= link_of_delete(review) %> 
       <%= link_of_report(review) %> 
       </span> 
     </p> 

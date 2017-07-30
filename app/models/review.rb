@@ -5,6 +5,8 @@ class Review < ActiveRecord::Base
   
   scope :reported_reviews, -> { joins(:reports).includes(:movie, {reports: :user}).distinct }
   
+  validates :content, presence: true
+  
   def username
     user.username.capitalize
   end

@@ -14,4 +14,7 @@ class User < ActiveRecord::Base
   
   has_many :reviews
   has_many :reports
+  
+  validates :username, presence: true
+  validates :gender, presence: true
 end

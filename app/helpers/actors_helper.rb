@@ -2,7 +2,7 @@ module ActorsHelper
    def get_movies
     @actor.movies.collect do |movie|
       content_tag(:li) do
-        link_to movie.title, admin_movie_path(movie)
+        link_to movie.title, movie
       end
     end
   end

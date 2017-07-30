@@ -1,0 +1,27 @@
+<div class="row ">
+  <div class="col-md-3">
+    <%= image_tag movie.display_first_poster, class: 'main-poster' %>
+  </div>
+  <div class="col-md-9">
+    <h3> <strong> <%= movie.title %> </strong> </h3>
+
+    <div class="form-year-margin">
+      <% if current_user %>
+        <span class="avg"> <strong> Rate: </strong> </span>
+        <%= rate(movie) %>
+      <% end %>
+    </div>
+    <div class="adjust_avg form-year-margin">
+      <span class="avg"> <strong> Average Rating: </strong> </span>
+      <%= avg_rating(movie) %>
+    </div>
+
+    <p class="form-year-margin"> <strong> Released Year: <%= movie.year %> </strong> </p>
+
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#description-modal">Description</button> <br>
+    <button type="button" class="btn btn-primary form-year-margin" data-toggle="modal" data-target="#trailor-modal">Trailor</button>
+    
+    <%= render 'description_modal', content: raw(movie.description) %>
+    <%= render 'trailor_modal', content: get_trailor(movie.trailor.split('/')[-2], movie.trailor.split('=')[-1], movie.trailor.split('/')[-1]) %>
+  </div>
+</div> <hr>

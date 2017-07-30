@@ -31,7 +31,7 @@ class Admin::MoviesController < Admin::BaseController
     @movie.update_attributes(movie_params)
     
     if @movie.save
-      redirect_to [:admin, @movie], notice: "Movie is Successfully Updated."
+      redirect_to @movie, notice: "Movie is Successfully Updated."
     else
       render :edit
     end

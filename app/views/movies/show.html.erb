@@ -1,38 +1,18 @@
-<h1> Movie Details </h1>
 <div class="container">
-  
-  <div class="row">
-    <div class="small-2 large-4 columns">
-      <% if current_user %>
-        <span class="avg"> <strong> Rate: </strong> </span>
-        <%= rate(@movie) %>
-      <% end %>
-      <div class="adjust_avg">
-        <span class="avg"> <strong> Average Rating: </strong> </span>
-        <%= avg_rating(@movie) %>
-      </div> 
-    </div>
-  </div>
-  
-  <h3> Titile: <%= @movie.title %> </h3>
-  <p> Released Year: <%= @movie.year %> </p>
-  <p> Description: <%= raw(@movie.description) %> </p> <hr>
+  <%= render 'movie_details', movie: @movie %>
 
-  <%= get_trailor(@movie.trailor.split('/')[-2], @movie.trailor.split('=')[-1], @movie.trailor.split('/')[-1]) %> <hr>
-  
   <section id="actors">
     <h2> All Actors </h2>
     <ul> <%= render @actors %> </ul> <hr>
   </section>
-  
+
   <section id="posters">
     <h2> All Posters </h2>
     <div class="row">
       <%= render @posters %>
     </div> <hr>
   </section>
-  
-  
+
   <div class="panel panel-primary review-panel-width">
     <div class="panel-heading"> <h4> <strong> Reviews </strong> </h4></div>
     <div class="panel-body">
@@ -42,7 +22,7 @@
       <%= render_reviews_form %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class = "btn-margin">
       <%= link_to "All Movies", root_path, class: "btn btn-primary" %>

@@ -4,13 +4,13 @@
   <%= f.label :title, "Title" %>
   <%= f.text_field :title, class: "form-control" %>
   
-  <%= f.label :description, "Description" %>
+  <%= f.label :description, "Description", class: 'form-year-margin' %>
   <%= f.cktext_area :description, class: "form-control", ckeditor: { language: 'english'} %>
   
-  <%= f.label :year, "Released Year" %>
+  <%= f.label :year, "Released Year", class: 'form-year-margin' %>
   <%= f.select :year, Date.today.year-10 .. Date.today.year+10, { prompt: "Select Year" }, class: "form-control" %>
   
-  <%= f.label :trailor, "Trailor" %>
+  <%= f.label :trailor, "Trailor", class: 'form-year-margin' %>
   <%= f.text_field :trailor, class: "form-control form-trailor-margin" %>
   
   <%= render "nested_actors", f: f %>

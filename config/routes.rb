@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   
   resources :movies do
     resources :reviews
+    member do
+      get 'mark_favorite'
+    end
+    member do
+      get 'mark_unfavorite'
+    end
   end
   
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}

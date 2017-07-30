@@ -43,7 +43,7 @@
 }
 
 .poster-height{
-  height: 350px !important;
+  height: 300px !important;
 }
 
 .movie-row-margin{
@@ -75,14 +75,14 @@ img.raty-cancel {
 }
 
 .review_body{
-  background: gainsboro;
+  background: black;
   padding: 12px;
-  width: 72.5%;
+  width: 100%;
   border-left: 7px solid cornflowerblue;
 }
 
 .text-area-width{
-  width: 240% !important; 
+  width: 332% !important; 
 }
 
 .review-form-top-margin{
@@ -125,6 +125,19 @@ img.raty-cancel {
 }
 
 .main-poster{
-  width: 100%; 
-  height: 300px
+  width: 100% !important; 
+  height: 300px !important;
+}
+
+body{ background-image: image-url('bg3.jpg'); }
+
+h1, h2, h3, p, td, th, span, li{
+  color: whitesmoke !important;
+}
+
+.favorites{
+  color: red; 
+  margin-top: 2%; 
+  font-size: 32px !important;
+  text-decoration: none !important;
 }

@@ -21,6 +21,7 @@ gem 'ratyrate'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'jquery-turbolinks'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug'

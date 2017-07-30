@@ -47,11 +47,19 @@ module MoviesHelper
     end 
   end
   
-   def get_actors
+  def get_actors
     @movie.actors.collect do |actor|
       content_tag(:li) do
         link_to actor.name, admin_actor_path(actor)
       end
+    end
+  end
+  
+  def get_favorite_link(movie)
+    if movie.favorites.map(&:user_id).include? current_user.id
+      render 'unfavorite', movie: movie
+    else
+      render 'favorite', movie: movie
     end
   end
 end

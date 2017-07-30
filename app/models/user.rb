@@ -12,9 +12,12 @@ class User < ActiveRecord::Base
   
   ratyrate_rater
   
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :reports
+  has_many :favorites, dependent: :destroy
   
   validates :username, presence: true
   validates :gender, presence: true
+  
+  scope :find_with_favorites, -> { includes(:favorites) }
 end

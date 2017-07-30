@@ -7,4 +7,11 @@
     <p> Gender: <%= @user.gender %> </p>
     <p> <%= link_to "Back", :back, class: "btn btn-primary" %></p>
   </div>
+  
+  <div class="favorited_movies">
+    <h3> Favorite Movies </h3>
+    <ul>
+      <%= raw get_favorited_movies.join %>
+    </ul>
+  </div>
 </div>

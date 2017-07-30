@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728111708) do
+ActiveRecord::Schema.define(version: 20170730095311) do
 
   create_table "actors", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20170728111708) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  add_index "appearences", ["movie_id", "actor_id"], name: "index_appearences_on_movie_id_and_actor_id", unique: true, using: :btree
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id",      limit: 4

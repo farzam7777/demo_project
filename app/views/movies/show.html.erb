@@ -22,13 +22,13 @@
   
   <section id="actors">
     <h2> All Actors </h2>
-    <ul> <%= render @movie.actors %> </ul> <hr>
+    <ul> <%= render @actors %> </ul> <hr>
   </section>
   
   <section id="posters">
     <h2> All Posters </h2>
     <div class="row">
-      <%= render @movie.posters %>
+      <%= render @posters %>
     </div> <hr>
   </section>
   
@@ -37,7 +37,7 @@
     <div class="panel-heading"> <h4> <strong> Reviews </strong> </h4></div>
     <div class="panel-body">
       <div id="reviews">
-        <%= render @movie.reviews %>
+        <%= render @reviews %>
       </div>
       <%= render_reviews_form %>
     </div>

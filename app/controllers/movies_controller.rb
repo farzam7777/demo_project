@@ -9,6 +9,9 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.all_associations.find(params[:id])
+    @actors = @movie.actors
+    @reviews = @movie.reviews
+    @posters = @movie.posters
     @review = Review.new
   end
 end

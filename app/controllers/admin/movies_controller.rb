@@ -7,17 +7,20 @@ class Admin::MoviesController < Admin::BaseController
 
   def new
     @movie = Movie.new
-    @actors = Actor.all
   end
   
   def create
-    @movie = Movie.create(movie_params)
+    @movie = Movie.new(movie_params)
     
     if @movie.save
       redirect_to admin_root_path, notice: "New Movie Successfully Created."
     else
       render :new
     end
+    
+    rescue ActiveRecord::RecordNotUnique 
+      flash[:notice] = 'Unable to create Movie with same Actors' 
+      render :new 
   end
 
   def edit

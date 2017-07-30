@@ -29,6 +29,21 @@ class Movie < ActiveRecord::Base
   
   scope :all_associations, -> { includes(:posters, :actors, :reviews) }
   
+  validates :title, presence: true
+  validates :description, length: { minimum: 15 }
+  validates :year, presence: true
+  validates :trailor, presence: true
+  validate :require_one_poster
+  validate :require_two_actors
+    
+  def require_one_poster
+    errors.add(:base, "You must provide at least one poster") if posters(&:marked_for_destruction?).size < 1
+  end
+  
+  def require_two_actors
+    errors.add(:base, "You must assign at least two actors") if appearences(&:marked_for_destruction?).size < 2
+  end
+  
   def display_first_poster
     posters.first.image.url(:medium)
   end

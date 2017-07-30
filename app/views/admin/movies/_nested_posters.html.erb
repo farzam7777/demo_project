@@ -3,4 +3,5 @@
     <%= poster.file_field :image, class: "form-control actor_nested_form_select form-posters-file_field-width" %>
     <%= poster.link_to_remove "Remove this poster", class: "btn btn-danger" %>
   </div>
+  <%= image_tag poster.object.image(:thumb) if poster.object.image? %> </span>
 <% end %>

@@ -24,6 +24,7 @@ gem 'jquery-turbolinks'
 gem "font-awesome-rails"
 gem "delayed_job_active_record"
 gem 'daemons'
+gem 'thinking-sphinx'
 
 group :development, :test do
   gem 'byebug'

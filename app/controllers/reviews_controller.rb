@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         @users.each do |user|
-          UserMailer.favorited_users(user, @movie).deliver
+          UserMailer.delay.favorited_users(user, @movie, current_user)
         end
         format.html{ redirect_to @movie, notice: "Review is successfully submitted." }
         format.js

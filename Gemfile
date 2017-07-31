@@ -25,7 +25,6 @@ gem "font-awesome-rails"
 gem "delayed_job_active_record"
 gem 'daemons'
 gem 'thinking-sphinx'
-gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug'

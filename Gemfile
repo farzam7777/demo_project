@@ -23,6 +23,7 @@ gem 'bootstrap-kaminari-views'
 gem 'jquery-turbolinks'
 gem "font-awesome-rails"
 gem "delayed_job_active_record"
+gem 'daemons'
 
 group :development, :test do
   gem 'byebug'

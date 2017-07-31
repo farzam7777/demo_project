@@ -4,9 +4,12 @@ class ReviewsController < ApplicationController
   
   def create
     @review = @movie.reviews.new(review_params)
-    
+    @users = @movie.favorites.map(&:user)
     respond_to do |format|
       if @review.save
+        @users.each do |user|
+          UserMailer.favorited_users(user, @movie).deliver
+        end
         format.html{ redirect_to @movie, notice: "Review is successfully submitted." }
         format.js
       else

@@ -40,7 +40,16 @@
     </nav>
   </section>
   
-  <div class="container">
+  <div class="search-form">
+    <%= form_tag search_movies_path, method: :get, id: 'search-form' do %>
+      <div class="form-group pull-right">
+        <%= text_field_tag :search, params[:search], class: 'form-control search-width', placeholder: 'Search Movies' %>
+        <%= link_to '', "#", onclick: "$('#search-form').submit()", class: 'glyphicon glyphicon-search search-button' %>
+      </div>
+    <% end %>
+  </div> <br>
+  
+  <div class="container">    
     <%= render partial: "shared/flash_messages", flash: flash %>
     <%= yield %>
   </div>  

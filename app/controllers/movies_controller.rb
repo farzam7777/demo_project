@@ -43,6 +43,10 @@ class MoviesController < ApplicationController
     end
   end
   
+  def search
+    @movies = Movie.search(params[:search], order: :title).page(params[:page]).per(3)
+  end
+  
   private
   
     def find_movie

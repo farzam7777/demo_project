@@ -24,6 +24,8 @@
     <%= render 'description_modal', content: raw(movie.description) %>
     <%= render 'trailor_modal', content: get_trailor(movie.trailor.split('/')[-2], movie.trailor.split('=')[-1], movie.trailor.split('/')[-1]) %> <br>
     
-    <p id="favorite_icon"> <%= get_favorite_link(movie) %> </p>
+    <% if user_signed_in? %>
+      <p id="favorite_icon"> <%= get_favorite_link(movie) %> </p>
+    <% end %>
   </div>
 </div> <hr>

@@ -3,10 +3,10 @@
 
   <div class="panel panel-primary review-panel-width">
     <div class="panel-heading"> <h4> <strong> <%= @actor.name %> </strong> </h4></div>
-    <div class="panel-body">
+    <div class="panel-body actor-movies">
       <%= @actor.description %>
       <h3> Movies </h3>
-      <ul>
+      <ul class = "actor-movies-ul">
         <%= raw get_movies.join %>
       </ul>
     </div>

@@ -131,7 +131,7 @@ img.raty-cancel {
 
 body{ background-image: image-url('bg3.jpg'); }
 
-h1, h2, h3, p, td, th, span, li{
+h1, h2, h3, p, td, th, span, li, label{
   color: whitesmoke !important;
 }
 
@@ -140,4 +140,16 @@ h1, h2, h3, p, td, th, span, li{
   margin-top: 2%; 
   font-size: 32px !important;
   text-decoration: none !important;
+}
+
+.modal-body *{
+  color: black !important;
+}
+
+.actor-movies h3{
+  color: black !important;
+}
+
+.actor-movies-ul li{
+  color: blue !important;
 }

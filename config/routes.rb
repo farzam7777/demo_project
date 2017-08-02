@@ -49,6 +49,15 @@ Rails.application.routes.draw do
       get 'edit_pic'
     end
   end
+  
+  namespace 'api' do
+    devise_for :users
+    resources :movies do
+      collection do
+        get 'search'
+      end
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

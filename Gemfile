@@ -25,6 +25,8 @@ gem "font-awesome-rails"
 gem "delayed_job_active_record"
 gem 'daemons'
 gem 'thinking-sphinx'
+gem 'active_model_serializers'
+gem 'rails-api'
 
 group :development, :test do
   gem 'byebug'

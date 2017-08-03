@@ -22,7 +22,6 @@ class Admin::ActorsController < Admin::BaseController
         format.js
       else
         format.html { render :new }
-        format.js
       end
     end
   end
@@ -39,7 +38,6 @@ class Admin::ActorsController < Admin::BaseController
         format.js
       else
         format.html { render :edit }
-        format.js
       end
     end
   end

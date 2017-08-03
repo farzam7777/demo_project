@@ -26,9 +26,13 @@ gem "delayed_job_active_record"
 gem 'daemons'
 gem 'thinking-sphinx'
 gem 'active_model_serializers'
+<<<<<<< HEAD
 
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
+=======
+gem 'rails-api'
+>>>>>>> apis
 
 group :development, :test do
   gem 'byebug'

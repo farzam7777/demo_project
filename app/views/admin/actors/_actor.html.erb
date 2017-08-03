@@ -3,7 +3,7 @@
   <td> <%= actor.name %> </td>
   <td class="actor-description-width"> <%= actor.description %> </td>
   <td> 
-    <%= link_to "View", admin_actor_path(actor) %> | 
+    <%= link_to "View", [:admin, actor] %> | 
     <%= get_edit_link(actor) %> | <%= get_delete_link(actor) %> 
   </td>
 </tr>

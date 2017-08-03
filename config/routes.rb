@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     member do
       get 'mark_unfavorite'
     end
-    collection do
-      get 'search'
-    end
+    # collection do
+    #   get 'search'
+    # end
   end
   
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
@@ -53,9 +53,9 @@ Rails.application.routes.draw do
   namespace 'api' do
     devise_for :users
     resources :movies do
-      collection do
-        get 'search'
-      end
+      # collection do
+      #   get 'search'
+      # end
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

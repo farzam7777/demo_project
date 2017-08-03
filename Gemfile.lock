@@ -269,6 +269,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (= 4.2.6)
   rails-api
+  rails_12factor
   ratyrate
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

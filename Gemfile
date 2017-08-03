@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
 gem 'rails', '4.2.6'
 gem 'puma', '~> 3.0'
@@ -28,9 +32,10 @@ gem 'thinking-sphinx'
 gem 'active_model_serializers'
 gem 'rails-api'
 
-gem 'rails_12factor', group: :production
-gem 'pg', group: :production
-
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'byebug'

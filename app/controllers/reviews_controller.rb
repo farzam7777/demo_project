@@ -11,9 +11,11 @@ class ReviewsController < ApplicationController
           UserMailer.delay.favorited_users(user, @movie, current_user) unless user == current_user 
         end
         format.html{ redirect_to @movie, notice: "Review is successfully submitted." }
+        @message = "Review is successfully submitted."
         format.js
       else
         format.html{ redirect_to @movie, notice: "Review is not successfully submitted." }
+        @message = "Review can't be created without any content, try Again!"
         format.js
       end
     end

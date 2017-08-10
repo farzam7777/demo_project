@@ -19,7 +19,7 @@ class Admin::MoviesController < Admin::BaseController
     end
     
     rescue ActiveRecord::RecordNotUnique 
-      flash[:notice] = 'Unable to create Movie with same Actors' 
+      flash[:alert] = 'Unable to create Movie with same Actors' 
       render :new 
   end
 

@@ -1,4 +1,13 @@
-$('#reviews').append('<%= j render @review %>')
-$("#review_<%= @review.id %>").hide().fadeIn(500)
-$('#review_content').val(' ')
-$('#review_content').focus()
+<% if @review.valid? %>
+  $('#reviews').append('<%= j render @review %>')
+  $("#review_<%= @review.id %>").hide().fadeIn(500)
+  $('#review_content').val(' ')
+  $('#review_p').html('<%= @message %>')
+  $('#review_p').addClass('review-p-style-valid')
+  $('#review_p').removeClass('review-p-style-invalid');
+  $('#review_content').focus()
+<% else %>
+  $('#review_p').html('<%= @message %>')
+  $('#review_p').addClass('review-p-style-invalid');
+  $('#review_p').removeClass('review-p-style-valid');
+<% end %>

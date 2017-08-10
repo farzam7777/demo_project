@@ -43,9 +43,9 @@ class Admin::MoviesController < Admin::BaseController
   
   def destroy
     if @movie.destroy
-      redirect_to admin_root_path, notice: "Movie is Successfully Deleted."
+      redirect_to admin_root_path, alert: "Movie is Successfully Deleted."
     else
-      redirect_to [:admin, @movie], notice: "Some Problem Occured while deleting Movie."
+      redirect_to [:admin, @movie], alert: "Some Problem Occured while deleting Movie."
     end
   end
   

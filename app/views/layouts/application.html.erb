@@ -32,7 +32,7 @@
             <li><a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           <% else %>
             <li class="welcome-msg"> <%= "Welcome, " + current_user.email %> </li>
-            <li> <%= link_to "Edit Profile", edit_user_registration_path, class: 'edit-profile-margin' %> </li>
+            <li> <%= link_to "Edit User Profile", edit_user_registration_path, class: 'edit-profile-margin' %> </li>
             <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
           <% end %>
         </ul>
@@ -40,17 +40,8 @@
     </nav>
   </section>
   
-  <div class="search-form">
-    <%= form_tag search_movies_path, method: :get, id: 'search-form' do %>
-      <div class="form-group pull-right">
-        <%= text_field_tag :search, params[:search], class: 'form-control search-width', placeholder: 'Search Movies' %>
-        <%= link_to '', "#", onclick: "$('#search-form').submit()", class: 'glyphicon glyphicon-search search-button' %>
-      </div>
-    <% end %>
-  </div> <br>
-  
   <div class="container">    
-    <%= render partial: "shared/flash_messages", flash: flash %>
+    <%= render "shared/flash_messages" %>
     <%= yield %>
   </div>  
 

@@ -5,13 +5,10 @@
     <h2> All Actors </h2>
     <ul> <%= render @actors %> </ul> <hr>
   </section>
-
-  <section id="posters">
-    <h2> All Posters </h2>
-    <div class="row">
-      <%= render @posters %>
-    </div> <hr>
-  </section>
+  
+  <div class="owl-carousel owl-theme">
+    <%= render @posters %>
+  </div>
 
   <div class="panel panel-primary review-panel-width">
     <div class="panel-heading"> <h4> <strong> Reviews </strong> </h4></div>
@@ -29,4 +26,10 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('.owl-carousel').owlCarousel({
+    items: 4
+  });
+</script>
 

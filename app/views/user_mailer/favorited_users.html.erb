@@ -3,4 +3,4 @@
 <p> <%= @greeting %> </p>
 
 <p> <%= link_to 'Visit ' + @movie.title, @movie %> </p>
-<p> Reviewd User: <%= link_to @reviewd_user.username.capitalize, "http://localhost:3000/" + user_path(@reviewd_user) %> </p>
+<p> Reviewd User: <%= link_to @reviewd_user.username.capitalize, user_url(@reviewd_user) %> </p>

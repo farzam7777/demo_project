@@ -5,7 +5,9 @@
     <span class="pull-right delete-link-margin"> <%= link_of_delete(review) %> </span>
     <p>
       <strong>
-        By <%= get_review_info(review) %>
+        <% if review.present? %>
+          By <%= get_review_info(review) %>
+        <% end %>
       </strong>
     </p> 
     <p> 

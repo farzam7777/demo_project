@@ -11,7 +11,7 @@ class Movie < ActiveRecord::Base
   ratyrate_rateable 'movie'
 
   scope :limited_latest_movies, -> { includes(:posters).where(year: Time.current.year).limit(3) }
-  scope :latest_movies, -> { includes(:posters).where(year: Time.current.year).all }
+  scope :latest_movies, -> { includes(:posters).order(year: :desc).all }
   scope :limited_featured_movies, -> { includes(:posters).all.where("featured = ?", true).limit(3) }
   scope :featured_movies, -> { includes(:posters).all.where("featured = ?", true) }
   

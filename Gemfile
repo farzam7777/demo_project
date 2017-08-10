@@ -31,6 +31,7 @@ gem "delayed_job_active_record"
 gem 'daemons'
 gem 'active_model_serializers'
 gem 'rails-api'
+gem 'owlcarousel-rails'
 
 group :production do
   gem 'rails_12factor'

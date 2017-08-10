@@ -2,13 +2,10 @@
   <div class="col-md-3">
     <%= image_tag movie.display_first_poster, class: 'main-poster img-responsive img-rounded' %>
   </div>
-  <div class="col-md-9 details-col-margin">
+  <div class="col-md-6 details-col-margin">
     <h3> 
       <strong> 
-        <%= movie.title %> 
-        <% if user_signed_in? %>
-          <%= get_favorite_link(movie) %>
-        <% end %> 
+        <p id="favorite_icon"> <%= movie.title if !user_signed_in? %>  <%= get_favorite_link(movie) if user_signed_in? %> </p>  
       </strong> 
     </h3>
 

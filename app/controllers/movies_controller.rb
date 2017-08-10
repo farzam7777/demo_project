@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
     @favorite = Favorite.where(movie_id: @movie.id, user_id: current_user.id)
     
     respond_to do |format|
-      if @favorite.destroy(@favorite)
+      if @favorite.delete_all
        format.html { redirect_to @movie, notice: 'Movie is successfully marked un-favorite by you.' }
        format.js
       else
@@ -43,9 +43,9 @@ class MoviesController < ApplicationController
     end
   end
   
-  # def search
-  #   @movies = Movie.search(params[:search], order: :title).page(params[:page]).per(3)
-  # end
+  def search
+    @movies = Movie.search(params[:search], order: :title).page(params[:page]).per(3)
+  end
   
   private
   

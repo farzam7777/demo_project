@@ -10,8 +10,14 @@
   
   <div class="favorited_movies">
     <h3> Favorite Movies </h3>
-    <ul>
-      <%= raw get_favorited_movies.join %>
-    </ul>
+    <div class="owl-carousel">
+      <%= render @favorited_movies %>
+    </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('.owl-carousel').owlCarousel({
+    items: 1
+  });
+</script>

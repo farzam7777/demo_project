@@ -32,6 +32,7 @@ gem 'daemons'
 gem 'active_model_serializers'
 gem 'rails-api'
 gem 'owlcarousel-rails'
+gem 'thinking-sphinx'
 
 group :production do
   gem 'rails_12factor'

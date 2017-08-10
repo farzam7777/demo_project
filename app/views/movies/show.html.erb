@@ -1,11 +1,7 @@
 <div class="container">
   <%= render 'movie_details', movie: @movie %>
-
-  <section id="actors">
-    <h2> All Actors </h2>
-    <ul> <%= render @actors %> </ul> <hr>
-  </section>
   
+  <h3> <strong> Posters </strong> </h3>
   <div class="owl-carousel owl-theme">
     <%= render @posters %>
   </div>

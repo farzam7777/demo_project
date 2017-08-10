@@ -12,7 +12,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Imdb</a>
+          <a class="navbar-brand" href="<%= root_path %>">Imdb</a>
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="<%= root_path %>">Home</a></li>
@@ -39,6 +39,15 @@
       </div>
     </nav>
   </section>
+  
+  <div class="search-form">
+    <%= form_tag search_movies_path, method: :get, id: 'search-form' do %>
+      <div class="form-group pull-right">
+        <%= text_field_tag :search, params[:search], class: 'form-control search-width', placeholder: 'Search Movies' %>
+        <%= link_to '', "#", onclick: "$('#search-form').submit()", class: 'glyphicon glyphicon-search search-button' %>
+      </div>
+    <% end %>
+  </div> <br>
   
   <div class="container">    
     <%= render "shared/flash_messages" %>

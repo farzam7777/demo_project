@@ -3,7 +3,14 @@
     <%= image_tag movie.display_first_poster, class: 'main-poster img-responsive img-rounded' %>
   </div>
   <div class="col-md-9 details-col-margin">
-    <h3> <strong> <%= movie.title %> </strong> </h3>
+    <h3> 
+      <strong> 
+        <%= movie.title %> 
+        <% if user_signed_in? %>
+          <%= get_favorite_link(movie) %>
+        <% end %> 
+      </strong> 
+    </h3>
 
     <div class="form-year-margin">
       <% if current_user %>
@@ -19,13 +26,11 @@
     <p class="form-year-margin"> <strong> Released Year: <%= movie.year %> </strong> </p>
 
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#description-modal">Description</button> <br>
-    <button type="button" class="btn btn-primary form-year-margin" data-toggle="modal" data-target="#trailor-modal">Trailor</button>
+    <button type="button" class="btn btn-primary form-year-margin" data-toggle="modal" data-target="#trailor-modal">Trailor</button> <br>
+    <button type="button" class="btn btn-info form-year-margin" data-toggle="modal" data-target="#actors-modal">Cast</button>
     
     <%= render 'description_modal', content: raw(movie.description) %>
     <%= render 'trailor_modal', content: get_trailor(movie.trailor.split('/')[-2], movie.trailor.split('=')[-1], movie.trailor.split('/')[-1]) %> <br>
-    
-    <% if user_signed_in? %>
-      <p id="favorite_icon"> <%= get_favorite_link(movie) %> </p>
-    <% end %>
+    <%= render 'actors_modal' %>
   </div>
-</div> <hr>
+</div>

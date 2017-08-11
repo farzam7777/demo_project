@@ -62,4 +62,8 @@ module MoviesHelper
       render 'favorite', movie: movie
     end
   end
+  
+  def human_boolean(boolean)
+    boolean ? 'Yes' : 'No'
+  end
 end

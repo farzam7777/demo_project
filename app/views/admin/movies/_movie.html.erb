@@ -1,6 +1,7 @@
 <tr id="movie_row_<%= movie.id %>">
   <td> <%= movie.id %> </td>
   <td> <%= movie.title %> </td>
+  <td> <%= human_boolean(movie.featured) %> </td>
   <td> 
     <%= link_to "View", movie_path(movie) %> | 
     <%= link_to "Edit", edit_admin_movie_path(movie) %> | 
